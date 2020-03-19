@@ -1,6 +1,10 @@
-import React from "react";
-
-function Square() {
-  return <div></div>;
+import React, { useState } from "react";
+import "../index.css";
+function Square({ value, onClick }) {
+  return (
+    <button className="square" onClick={onClick}>
+      {value}
+    </button>
+  );
 }
 export default Square;
