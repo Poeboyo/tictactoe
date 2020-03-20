@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Square from "./Square";
+const [squares, setSquares] = useState(Array(9).fill(null));
 
 function Game() {
   return (
@@ -26,7 +27,18 @@ function Game() {
     </div>
   );
 }
+
 function renderSquare(i) {
-  return <Square value={i} onClick={null} />;
+  return (
+    <Square
+      value={squares[i]}
+      onClick={() => {
+        const nextSquares = squares.slice();
+        nextSquares[i] = "X";
+        setSquares(nextSquares);
+      }}
+    />
+  );
 }
+
 export default Game;
